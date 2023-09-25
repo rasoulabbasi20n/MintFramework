@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mint.Core", "Mint.Core\Mint.Core.csproj", "{0649C573-5178-4E1C-AB2D-08C2F3ACF4D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mint.Autofac", "Mint.Autofac\Mint.Autofac.csproj", "{74E9127F-BF2A-4DB5-976E-94D929816D0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0649C573-5178-4E1C-AB2D-08C2F3ACF4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0649C573-5178-4E1C-AB2D-08C2F3ACF4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0649C573-5178-4E1C-AB2D-08C2F3ACF4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0649C573-5178-4E1C-AB2D-08C2F3ACF4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E9127F-BF2A-4DB5-976E-94D929816D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E9127F-BF2A-4DB5-976E-94D929816D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E9127F-BF2A-4DB5-976E-94D929816D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E9127F-BF2A-4DB5-976E-94D929816D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E46DA56-6944-4182-B2DC-97E41638BFF1}
+	EndGlobalSection
+EndGlobal

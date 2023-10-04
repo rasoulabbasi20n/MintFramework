@@ -9,6 +9,7 @@ namespace Mint.Mongodb
         protected IMongoClient Client { get; set; }
         private IClientSessionHandle? clientSessionHandle { get; set; }
         public string DbName { get; set; }
+
         public MongodbUnitOfWork(string connectionString)
         {
             var connectionParameters = connectionString.Split(";".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)

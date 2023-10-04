@@ -1,5 +1,6 @@
 ﻿using Mint.Core.Application.Events;
 using Mint.Core.Domain;
+using Mint.Core.Persistance;
 using Mint.Core.Problems;
 
 namespace Mint.Core.Application.Commands
@@ -30,8 +31,8 @@ namespace Mint.Core.Application.Commands
                     return ClientResponse.CreateSuccess();
                 }
 
-                HandleProblem(commandResult.Problem);
-                return ClientResponse.CreateFailure(commandResult.Problem);
+                HandleProblem(commandResult.Problem!);
+                return ClientResponse.CreateFailure(commandResult.Problem!);
             }
             catch (Exception ex)
             {
@@ -53,7 +54,7 @@ namespace Mint.Core.Application.Commands
                     return ClientResponse<TResult>.CreateSuccess(commandResult.Result!);
                 }
 
-                HandleProblem(commandResult!.Problem!);
+                HandleProblem(commandResult.Problem!);
                 return ClientResponse<TResult>.CreateFailure(commandResult.Problem!);
             }
             catch (Exception ex)

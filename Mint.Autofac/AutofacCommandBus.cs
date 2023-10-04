@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Mint.Core;
-using Mint.Core.Application;
 using Mint.Core.Application.Commands;
 using Mint.Core.Application.Events;
+using Mint.Core.Persistance;
 
 namespace Mint.Autofac
 {

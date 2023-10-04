@@ -2,6 +2,6 @@
 {
     public record CommandOptions
     {
-        public string TransactionIsolationLevel { get; set; }
+        public TransactionIsolationLevel TransactionIsolationLevel { get; set; } = TransactionIsolationLevel.ReadCommitted;
     }
 }

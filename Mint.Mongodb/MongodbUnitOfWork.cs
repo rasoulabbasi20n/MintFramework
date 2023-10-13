@@ -3,12 +3,14 @@ using MongoDB.Driver;
 
 namespace Mint.Mongodb
 {
-    internal class MongodbUnitOfWork : IUnitOfWork
+    public class MongodbUnitOfWork : IUnitOfWork
     {
         protected IMongoDatabase Database => Client.GetDatabase(DbName);
         protected IMongoClient Client { get; set; }
         private IClientSessionHandle? clientSessionHandle { get; set; }
         public string DbName { get; set; }
+
+        public IOutboxRepository? OutboxRepository => new MongodbOutboxRepository();
 
         public MongodbUnitOfWork(string connectionString)
         {

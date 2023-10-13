@@ -7,5 +7,6 @@ namespace Mint.Core.Persistance
         Task<IDisposable> BeginTransactionScope(TransactionIsolationLevel transactionIsolationLevel, CancellationToken cancellationToken);
         Task Commit(CancellationToken cancellationToken);
         Task Rollback(CancellationToken cancellationToken);
+        IOutboxRepository? OutboxRepository { get; }
     }
 }

@@ -18,8 +18,8 @@ Knowing these decisions is the key to using this framework in a healthy way. If 
 The domain event handlers are in the same transaction as the origin command handler. If you need to handle domain events in a different transaction, you can raise an ApplicationEvent. All domain event handlers are assumed to be consistent with the origin command handler. This decision has been made to remove the need for multiple transactions for simple alteration of other aggregates. We know the rule of one-aggregate-one-transaction, but there must be a way to do simple alterations in a sync way when there is no need for complex solutions such as the Saga pattern. 
 These situations happen when:
 
--for one use case there are at least two respondent aggregates in the same bounded context (being in the same bounded context is mandatory). 
--the aggregates have no problem with loading and saving changes in one transaction (no performance issues).
--the aggregates must validate the situation, and any exception that occurs must roll back the transaction (one violation must roll back all changes).
+- for one use case there are at least two respondent aggregates in the same bounded context (being in the same bounded context is mandatory). 
+- the aggregates have no problem with loading and saving changes in one transaction (no performance issues).
+- the aggregates must validate the situation, and any exception that occurs must roll back the transaction (one violation must roll back all changes).
 
 So for the need for eventual consistency or any other reasons, you have the possibility of raising ApplicationEvents. 

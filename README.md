@@ -20,6 +20,6 @@ These situations happen when:
 
 - for one use case there are at least two respondent aggregates in the same bounded context (being in the same bounded context is mandatory). 
 - the aggregates have no problem with loading and saving changes in one transaction (no performance issues).
-- the aggregates must validate the situation, and any exception that occurs must roll back the transaction (one violation must roll back all changes).
+- the aggregates must validate the situation, and any exception that occurs must roll back the transaction (one violation results in rolling back all changes).
 
 So for the need for eventual consistency or any other reasons, you have the possibility of raising ApplicationEvents. 

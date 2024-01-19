@@ -1,9 +1,7 @@
 ﻿using Autofac;
 using Mint.Core;
 using Mint.Core.Application;
-using Mint.Core.Application.Events;
 using Mint.Core.Persistance;
-using Mint.Core.Transport;
 
 namespace Mint.Autofac
 {
@@ -15,8 +13,8 @@ namespace Mint.Autofac
             ILifetimeScope scope,
             ILoggingService logger,
             IUnitOfWork unitOfWork,
-            IMessageTransporter messageTransporter)
-            : base(logger, unitOfWork, messageTransporter)
+            bool enableOutbox)
+            : base(logger, unitOfWork, enableOutbox)
         {
             _scope = scope;
         }

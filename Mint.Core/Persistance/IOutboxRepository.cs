@@ -3,7 +3,7 @@
     public interface IOutboxRepository 
     {
         Task EnqueueMessage(OutboxMessage message, CancellationToken cancellationToken);
-        Task<OutboxMessage?> GetNextMessage(CancellationToken cancellationToken);
+        OutboxMessage? GetNextMessage();
         Task Dispatch(OutboxMessage message, CancellationToken cancellationToken);
     }
 }

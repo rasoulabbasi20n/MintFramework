@@ -1,6 +1,8 @@
-﻿namespace Mint.Core.Persistance
+﻿using Mint.Core.Domain;
+
+namespace Mint.Core.Persistance
 {
-    public class OutboxMessage
+    public class OutboxMessage : AggregateRoot<string>
     {
         public string Id { get; set; }
         public bool Dispatched { get; set; }

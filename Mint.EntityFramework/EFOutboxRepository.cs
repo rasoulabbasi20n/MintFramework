@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Mint.Core.Persistance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mint.EntityFramework
 {
@@ -28,10 +23,10 @@ namespace Mint.EntityFramework
         {
             await OutboxMessages.AddAsync(message, cancellationToken);
         }
-
-        public Task<OutboxMessage?> GetNextMessage(CancellationToken cancellationToken)
+ 
+        public OutboxMessage? GetNextMessage()
         {
-            return OutboxMessages.OrderBy(x => x.PublishedDate).FirstOrDefaultAsync(cancellationToken);
+            return OutboxMessages.OrderBy(x => x.PublishedDate).FirstOrDefault();
         }
     }
 }

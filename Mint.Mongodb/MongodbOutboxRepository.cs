@@ -1,22 +1,38 @@
 ﻿using Mint.Core.Persistance;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace Mint.Mongodb
 {
-    public class MongodbOutboxRepository : IOutboxRepository
+    public class MongodbOutboxRepository : MongodbRepositoryBase<OutboxMessage, string>, IOutboxRepository
     {
-        public Task Dispatch(OutboxMessage message, CancellationToken cancellationToken)
+        private readonly IMongoCollection<OutboxMessage> OutboxCollection;
+        public MongodbOutboxRepository(MongodbContext context) : base(context)
         {
-            throw new NotImplementedException();
+            OutboxCollection = DbContext.Database.GetCollection<OutboxMessage>("outbox", new MongoCollectionSettings { });
+        }
+
+        public async Task Dispatch(OutboxMessage message, CancellationToken cancellationToken)
+        {
+            message.Dispatch();
+            await UpsertOne(message, cancellationToken);
         }
 
         public Task EnqueueMessage(OutboxMessage message, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return InsertOne(message, cancellationToken);
         }
 
-        public Task<OutboxMessage?> GetNextMessage(CancellationToken cancellationToken)
+        public OutboxMessage? GetNextMessage()
         {
-            throw new NotImplementedException();
+            return AsQueryable()
+                .OrderBy(x => x.PublishedDate)
+                .FirstOrDefault(x => !x.Dispatched);
+        }
+
+        protected override IMongoCollection<OutboxMessage> GetCollection()
+        {
+            return OutboxCollection;
         }
     }
 }

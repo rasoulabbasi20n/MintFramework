@@ -77,23 +77,5 @@ namespace Mint.Persistance.EntityFramework
             }
             throw new ArgumentOutOfRangeException("transactionIsolationLevel");
         }
-
-        //        public virtual IOutboxRepository? OutboxRepository
-        //        {  
-        //            try
-        //            {
-        //#pragma warning disable S1135 // Track uses of "TODO" tags
-        //                // TODO : check if it throws exception when trying to get the DBSET
-        //                return new EFOutboxRepository(Context.Set<OutboxMessage>());
-        //#pragma warning restore S1135 // Track uses of "TODO" tags
-        //            }
-        //            catch IOutboxRepository? IUnitOfWork.OutboxRepository => throw new NotImplementedException();
-
-        //        (Exception)
-        //            {
-        //                return null;
-        //            }
-        //}
-        //        }
     }
 }
